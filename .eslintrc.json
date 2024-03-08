@@ -1,0 +1,74 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "ignorePatterns": ["node_modules/**/*", "src/**/*.css"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["simple-import-sort", "eslint-plugin-react", "prettier"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?w"],
+          ["^(@|src)(/.*|$)"],
+          ["^u0000"],
+          ["^..(?!/?$)", "^../?$"],
+          ["^./(?=.*/)(?!/?$)", "^.(?!/?$)", "^./?$"],
+          ["^.+.?(css)$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-vars": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "enableDangerousAutofixThisMayCauseInfiniteLoops": true
+      }
+    ],
+    "object-shorthand": ["error", "always"],
+    "no-undef": "error",
+    "react/prop-types": "off",
+    "no-console": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 80,
+        "trailingComma": "es5",
+        "semi": true,
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "no-unused-vars": ["error"],
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "globals": {
+    "arguments": true
+  }
+}
